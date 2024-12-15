@@ -13,7 +13,7 @@ spec:
   rules:
     - matches:
         - method:
-            service: com.acme.schema.v1.person-service
+            service: com.acme.schema.v1.PersonService
             type: Exact
       backendRefs:
         - group: ''
