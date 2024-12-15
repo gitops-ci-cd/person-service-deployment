@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: person-service
+  name: person-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: person-service
+  template:
+    metadata:
+      labels:
+        app: person-service
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/gitops-ci-cd/person-service:2178ece3a5a3f65c37580b9cc08f9e3b57c46412
+          env:
+            - name: PORT
+              value: "50051"
+          ports:
+            - name: grpc
+              containerPort: 50051
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100M
+            limits:
+              cpu: 200m
+              memory: 200M

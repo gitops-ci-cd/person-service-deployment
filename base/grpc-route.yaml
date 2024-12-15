@@ -1,0 +1,23 @@
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: GRPCRoute
+metadata:
+  name: person-service-route
+spec:
+  parentRefs:
+    - name: person-service
+      kind: Service
+      group: core
+  hostnames:
+    - "person-service.localhost"
+  rules:
+    - matches:
+        - method:
+            service: com.acme.schema.v1.person-service
+            type: Exact
+      backendRefs:
+        - group: ''
+          kind: Service
+          name: person-service
+          port: 50051
+          weight: 1
