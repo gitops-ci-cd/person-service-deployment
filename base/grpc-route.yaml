@@ -8,8 +8,6 @@ spec:
     - name: person-service
       kind: Service
       group: core
-  hostnames:
-    - "person-service.localhost"
   rules:
     - matches:
         - method:
