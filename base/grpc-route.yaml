@@ -7,7 +7,7 @@ spec:
   parentRefs:
     - name: person-service
       kind: Service
-      group: core
+      group: ''
   rules:
     - matches:
         - method:
