@@ -19,11 +19,3 @@ spec:
           name: person-service
           port: 50051
           weight: 1
-    - matches:
-        - method:
-            service: "*"
-      backendRefs: []
-      filters:
-        - type: RequestRedirect
-          requestRedirect:
-            statusCode: 404
