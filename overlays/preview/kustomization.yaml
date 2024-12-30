@@ -4,3 +4,13 @@ kind: Kustomization
 
 resources:
   - ../../base
+
+patches:
+  - path: deployment.yaml
+  - target:
+      kind: Service
+      name: person-service
+    patch: |-
+      - op: add
+        path: /spec/selector/environment
+        value: preview

@@ -7,3 +7,36 @@ resources:
 
 patches:
   - path: deployment.yaml
+  - target:
+      kind: GRPCRoute
+      name: person-service-route
+    patch: |-
+      - op: add
+        path: /spec/rules/0/matches/0/headers
+        value: []
+      - op: add
+        path: /spec/rules/0/matches/0/headers/-
+        value:
+          name: x-subdomain
+          type: Exact
+          value: sandbox
+      - op: add
+        path: /spec/rules/-
+        value:
+          matches:
+            - method:
+                service: grpc.reflection.v1.ServerReflection
+                type: Exact
+          backendRefs:
+            - group: ''
+              kind: Service
+              name: person-service
+              port: 50051
+              weight: 1
+  - target:
+      kind: Service
+      name: person-service
+    patch: |-
+      - op: add
+        path: /spec/selector/environment
+        value: local
