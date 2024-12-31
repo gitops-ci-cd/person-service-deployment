@@ -39,6 +39,13 @@ patches:
           backendRefs:
             - name: person-service
               port: 50051
+              group: ''
+              kind: Service
+              weight: 1
+          matches:
+            - path:
+                type: PathPrefix
+                value: /
   - target:
       kind: Service
       name: person-service
