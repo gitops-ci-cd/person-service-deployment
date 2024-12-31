@@ -20,6 +20,12 @@ patches:
           name: x-subdomain
           type: Exact
           value: sandbox
+      - op: add
+        path: /spec/rules/-
+        value:
+          backendRefs:
+            - name: person-service
+              port: 50051
   - target:
       kind: Service
       name: person-service

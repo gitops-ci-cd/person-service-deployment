@@ -33,6 +33,12 @@ patches:
               name: person-service
               port: 50051
               weight: 1
+      - op: add
+        path: /spec/rules/-
+        value:
+          backendRefs:
+            - name: person-service
+              port: 50051
   - target:
       kind: Service
       name: person-service
