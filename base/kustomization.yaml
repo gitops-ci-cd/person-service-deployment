@@ -6,3 +6,8 @@ resources:
   - deployment.yaml
   - service.yaml
   - grpc-route.yaml
+
+images:
+  - name: person-service
+    newName: ghcr.io/gitops-ci-cd/person-service
+    newTag: 5321defb239e7c1e0fb8b79f2274b9b754f05a03
