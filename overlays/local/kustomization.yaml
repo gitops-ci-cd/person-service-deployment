@@ -12,15 +12,6 @@ patches:
       name: person-service-route
     patch: |-
       - op: add
-        path: /spec/rules/0/matches/0/headers
-        value: []
-      - op: add
-        path: /spec/rules/0/matches/0/headers/-
-        value:
-          name: x-subdomain
-          type: Exact
-          value: sandbox
-      - op: add
         path: /spec/rules/-
         value:
           matches:
@@ -33,19 +24,6 @@ patches:
               name: person-service
               port: 50051
               weight: 1
-      - op: add
-        path: /spec/rules/-
-        value:
-          backendRefs:
-            - name: person-service
-              port: 50051
-              group: ''
-              kind: Service
-              weight: 1
-          matches:
-            - path:
-                type: PathPrefix
-                value: /
   - target:
       kind: Service
       name: person-service
