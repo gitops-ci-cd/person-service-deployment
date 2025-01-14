@@ -7,6 +7,6 @@ resources:
 images:
 - name: person-service
   newName: ghcr.io/gitops-ci-cd/person-service
-  digest: sha256:a220b30e6510b0bb74c4d67f7087cfe2436f43d7d4b0da54bbefcb62f6c0a671
+  newTag: c36d939e7adcae004d922235e3e3e52f94db8f8a
 - name: ghcr.io/gitops-ci-cd/person-service
   newTag: 5ba23e8f9165ec4788c1bbd91ed0d535d193b95e
