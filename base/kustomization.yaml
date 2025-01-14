@@ -1,13 +1,12 @@
----
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 resources:
-  - deployment.yaml
-  - service.yaml
-  - grpc-route.yaml
-
+- deployment.yaml
+- service.yaml
+- grpc-route.yaml
 images:
-  - name: person-service
-    newName: ghcr.io/gitops-ci-cd/person-service
-    newTag: ae32c1094ca1f5a395621d6ba533648c5ab5507c
+- name: person-service
+  newName: ghcr.io/gitops-ci-cd/person-service
+  newTag: ae32c1094ca1f5a395621d6ba533648c5ab5507c
+- name: ghcr.io/gitops-ci-cd/person-service
+  newTag: latest
