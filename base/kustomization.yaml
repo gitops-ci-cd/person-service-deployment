@@ -7,6 +7,4 @@ resources:
 images:
 - name: person-service
   newName: ghcr.io/gitops-ci-cd/person-service
-  newTag: c36d939e7adcae004d922235e3e3e52f94db8f8a
-- name: ghcr.io/gitops-ci-cd/person-service
-  newTag: 5ba23e8f9165ec4788c1bbd91ed0d535d193b95e
+  newTag: 81dd3d0045f5fd405a681ace44ba655032a9f134
